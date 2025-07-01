@@ -380,6 +380,7 @@ async def main():
     global players
     players = load_players()
     TOKEN = os.getenv("TOKEN")
+    print(f"TOKEN loaded? {'Yes' if TOKEN else 'No'}")
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("explore", explore))
@@ -395,8 +396,5 @@ async def main():
     app.add_handler(CommandHandler("mystats", mystats))
     app.add_handler(CommandHandler("stats", stats))
     print("Bot is running...")
-    await app.initialize()
-    await app.start()
-    print("Bot started and polling...")
-    await app.updater.start_polling()
-    await app.updater.idle()
+    print("Initializing bot...")
+    await app.run_polling()
