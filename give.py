@@ -396,7 +396,3 @@ async def main():
     app.add_handler(CommandHandler("stats", stats))
     print("Bot is running...")
     await app.run_polling()
-
-if __name__ == '__main__':
-    nest_asyncio.apply()
-    asyncio.run(main())
