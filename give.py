@@ -395,4 +395,5 @@ async def main():
     app.add_handler(CommandHandler("mystats", mystats))
     app.add_handler(CommandHandler("stats", stats))
     print("Bot is running...")
+    print("Bot started successfully")  # ✅ Add this line here
     await app.run_polling()
