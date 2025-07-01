@@ -379,7 +379,8 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def main():
     global players
     players = load_players()
-    app = ApplicationBuilder().token("8005752896:AAG4WZIuK5bke8-YRhdeMpWmkukkqi-NQ0M").build()
+    TOKEN = os.getenv("TOKEN")
+    app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("explore", explore))
     app.add_handler(CallbackQueryHandler(fight_start_callback, pattern="fight_start"))
